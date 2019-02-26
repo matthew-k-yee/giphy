@@ -15,7 +15,7 @@ const Buttons = props => {
       <form onClick={props.reverseOrder}>
         <button type='submit'>Reverse Order</button>
       </form>
-      <form>
+      <form onClick={props.clearScreen}>
         <button type='submit'>Clear All</button>
       </form>
     </div>

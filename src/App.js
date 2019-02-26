@@ -42,6 +42,13 @@ class App extends Component {
     })
   }
 
+  clearScreen = e => {
+    e.preventDefault()
+    this.setState({
+      home: false
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -49,6 +56,7 @@ class App extends Component {
       <Buttons 
         loadTrending={this.loadTrending}
         reverseOrder={this.reverseOrder}  
+        clearScreen={this.clearScreen}
         />
       {this.state.home ? <Display trending={this.state.trending}/> : null}
       </div>
