@@ -9,7 +9,7 @@ const Buttons = props => {
       <form>
         <button type='submit'>Select One at Random</button>
       </form>
-      <form>
+      <form onClick={props.randomOrder}>
         <button type='submit'>Randomize Order</button>
       </form>
       <form onClick={props.reverseOrder}>

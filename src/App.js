@@ -33,6 +33,20 @@ class App extends Component {
     })
   }
 
+  randomOrder = e => {
+    e.preventDefault()
+    const trending = this.state.trending
+    for ( let i = trending.length -1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1))
+      let temp = trending[i]
+      trending[i] = trending[j]
+      trending[j] = temp
+    }
+    this.setState({
+      trending
+    })
+  }
+
   reverseOrder = e => {
     e.preventDefault()
     const trending = this.state.trending
@@ -55,6 +69,7 @@ class App extends Component {
       <h1>Trending Gifs</h1>
       <Buttons 
         loadTrending={this.loadTrending}
+        randomOrder={this.randomOrder}
         reverseOrder={this.reverseOrder}  
         clearScreen={this.clearScreen}
         />
