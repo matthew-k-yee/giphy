@@ -28,10 +28,17 @@ class App extends Component {
 
   loadTrending = e => {
     e.preventDefault()
-    console.log('load trending')
-    console.log(this.state.trending)
     this.setState({
       home: true
+    })
+  }
+
+  reverseOrder = e => {
+    e.preventDefault()
+    const trending = this.state.trending
+    const reverse = trending.reverse()
+    this.setState({
+      trending: reverse
     })
   }
 
@@ -39,7 +46,10 @@ class App extends Component {
     return (
       <div className="App">
       <h1>Trending Gifs</h1>
-      <Buttons loadTrending={this.loadTrending}/>
+      <Buttons 
+        loadTrending={this.loadTrending}
+        reverseOrder={this.reverseOrder}  
+        />
       {this.state.home ? <Display trending={this.state.trending}/> : null}
       </div>
     );

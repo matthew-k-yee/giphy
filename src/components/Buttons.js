@@ -3,7 +3,7 @@ import React from 'react'
 const Buttons = props => {
   return (
     <div>
-      <form onSubmit={props.loadTrending}>
+      <form onClick={props.loadTrending}>
         <button type='submit'>Load Trending Gifs</button>
       </form>
       <form>
@@ -12,7 +12,7 @@ const Buttons = props => {
       <form>
         <button type='submit'>Randomize Order</button>
       </form>
-      <form>
+      <form onClick={props.reverseOrder}>
         <button type='submit'>Reverse Order</button>
       </form>
       <form>
