@@ -1,13 +1,12 @@
 import React from 'react' 
 
 const Display = props => {
-  console.log(props.trending)
   return (
     <div>
-      <h3>Hello World</h3>
       {props.trending.map(gif => (
-        <div>
+        <div key={gif.id}>
           <p>{gif.title}</p>
+          <img src={gif.images.original.url} alt=""/>
         </div>
       ))}
     </div>

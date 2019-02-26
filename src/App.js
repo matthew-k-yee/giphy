@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Display from './components/Display'
+import Buttons from './components/Buttons'
 import logo from './logo.svg';
 import './App.css';
 
@@ -8,7 +9,8 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = ({
-      trending: []
+      home: false,
+      trending: [],
     })
   }
 
@@ -24,10 +26,21 @@ class App extends Component {
     })
   }
 
+  loadTrending = e => {
+    e.preventDefault()
+    console.log('load trending')
+    console.log(this.state.trending)
+    this.setState({
+      home: true
+    })
+  }
+
   render() {
     return (
       <div className="App">
-      <Display trending={this.state.trending}/>
+      <h1>Trending Gifs</h1>
+      <Buttons loadTrending={this.loadTrending}/>
+      {this.state.home ? <Display trending={this.state.trending}/> : null}
       </div>
     );
   }
