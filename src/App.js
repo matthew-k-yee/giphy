@@ -65,8 +65,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-      <h1>Trending Gifs</h1>
+      <div className="App background">
+      <h1>Trending GIFs courtesy of the <a href='https://github.com/Giphy/GiphyAPI' className='giphy'>Giphy API</a></h1>
       <Buttons 
         loadTrending={this.loadTrending}
         randomOrder={this.randomOrder}
