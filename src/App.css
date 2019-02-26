@@ -4,6 +4,7 @@
   text-align: center;
   padding: 0;
   margin: 0;
+  overflow: scroll
 }
 
 .background {
@@ -28,6 +29,6 @@ button {
   display: flex;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 16px 36px 22px;
+  padding: 10px 34px 15px;
   margin-bottom: 15px;
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import Display from './components/Display'
 import Buttons from './components/Buttons'
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -11,6 +10,7 @@ class App extends Component {
     this.state = ({
       home: false,
       trending: [],
+      copy: []
     })
   }
 
@@ -22,14 +22,25 @@ class App extends Component {
     const request = await axios.get('http://api.giphy.com/v1/gifs/trending?&api_key=IgNewGfIvQ4HIAdoVCMLECMSjjUSKYBm&limit=10')
     const trending = request.data.data
     this.setState({
-      trending
+      trending: trending, 
+      copy: trending
     })
   }
+
 
   loadTrending = e => {
     e.preventDefault()
     this.setState({
       home: true
+    })
+  }
+
+  onlyOne = e => {
+    e.preventDefault()
+    const trending = this.state.copy
+    let randomize = [trending[Math.floor(Math.random() * trending.length)]]
+    this.setState({
+      trending: randomize
     })
   }
 
@@ -47,7 +58,7 @@ class App extends Component {
     })
   }
 
-  reverseOrder = e => {
+  reverseOrder = (e) => {
     e.preventDefault()
     const trending = this.state.trending
     const reverse = trending.reverse()
@@ -72,6 +83,7 @@ class App extends Component {
         randomOrder={this.randomOrder}
         reverseOrder={this.reverseOrder}  
         clearScreen={this.clearScreen}
+        onlyOne={this.onlyOne}
         />
       {this.state.home ? <Display trending={this.state.trending}/> : null}
       </div>

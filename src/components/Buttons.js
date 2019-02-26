@@ -6,7 +6,7 @@ const Buttons = props => {
       <form onClick={props.loadTrending}>
         <button type='submit'>Load Trending Gifs</button>
       </form>
-      <form>
+      <form onClick={props.onlyOne}>
         <button type='submit'>Select One at Random</button>
       </form>
       <form onClick={props.randomOrder}>
